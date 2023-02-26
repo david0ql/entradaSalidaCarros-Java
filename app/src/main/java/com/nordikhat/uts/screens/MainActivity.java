@@ -1,4 +1,4 @@
-package com.nordikhat.uts;
+package com.nordikhat.uts.screens;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.nordikhat.uts.R;
 import com.nordikhat.uts.services.login.LoginClass;
 import com.nordikhat.uts.services.login.LoginClient;
 import com.nordikhat.uts.services.login.LoginResponse;

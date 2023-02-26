@@ -1,10 +1,12 @@
-package com.nordikhat.uts;
+package com.nordikhat.uts.screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+
+import com.nordikhat.uts.R;
 
 public class HomeActivity extends AppCompatActivity {
     Button verCarros, editarCarros, insertarCarros;

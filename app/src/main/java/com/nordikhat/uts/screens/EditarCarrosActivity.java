@@ -1,8 +1,10 @@
-package com.nordikhat.uts;
+package com.nordikhat.uts.screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.nordikhat.uts.R;
 
 public class EditarCarrosActivity extends AppCompatActivity {
 
