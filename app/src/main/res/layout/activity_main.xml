@@ -18,10 +18,9 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logo"
+            android:contentDescription="TODO" />
         <com.google.android.flexbox.FlexboxLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -33,13 +32,11 @@
                 android:layout_height="wrap_content"/>
             <EditText
                 android:id="@+id/username"
-                android:hint="Ingresa tu usuario"
+                android:hint="@string/ingresa_tu_usuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </com.google.android.flexbox.FlexboxLayout>
         <com.google.android.flexbox.FlexboxLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -51,7 +48,7 @@
                 android:layout_height="wrap_content"/>
             <EditText
                 android:id="@+id/password"
-                android:hint="Ingresa tu clave"
+                android:hint="@string/ingresa_tu_clave"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </com.google.android.flexbox.FlexboxLayout>
@@ -60,6 +57,6 @@
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="@string/iniciar_sesion" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,16 +1,25 @@
 package com.nordikhat.uts;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.nordikhat.uts.login.LoginClass;
 import com.nordikhat.uts.login.LoginClient;
+import com.nordikhat.uts.login.LoginResponse;
+import com.nordikhat.uts.login.MetadataResponse;
 
+import java.io.IOException;
+
+import okhttp3.RequestBody;
+import okio.Buffer;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,14 +43,21 @@ public class MainActivity extends AppCompatActivity {
 
         button.setOnClickListener(view -> {
             LoginClass loginClass = new LoginClass(username.getText().toString(), password.getText().toString());
-            loginClient.getLoginService().login(loginClass).enqueue(new Callback<LoginClass>() {
+            loginClient.getLoginService().login(loginClass).enqueue(new Callback<LoginResponse>() {
                 @Override
-                public void onResponse(Call<LoginClass> call, Response<LoginClass> r) {
-                    Toast.makeText(getApplicationContext(), "ok " + r.body() + " created", Toast.LENGTH_SHORT).show();
+                public void onResponse(@NonNull Call<LoginResponse> call, Response<LoginResponse> r) {
+                    assert r.body() != null;
+                    MetadataResponse[] metada = r.body().getMetadata();
+                    String tipo = metada[0].getTipo();
+                    if (tipo.equals("ok")){
+                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                    }else {
+                        Toast.makeText(MainActivity.this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
                 @Override
-                public void onFailure(Call<LoginClass> call, Throwable t) {
+                public void onFailure(@NonNull Call<LoginResponse> call, Throwable t) {
                     Toast.makeText(getApplicationContext(), "fail:" + t.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
