@@ -1,5 +1,7 @@
 package com.nordikhat.uts.services.login;
 
+import com.nordikhat.uts.api.ApiClass;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -22,7 +24,7 @@ public final class LoginClient {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.5:9091")
+                .baseUrl(ApiClass.API_URL)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

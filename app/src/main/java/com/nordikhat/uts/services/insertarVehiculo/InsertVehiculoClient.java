@@ -1,5 +1,6 @@
 package com.nordikhat.uts.services.insertarVehiculo;
 
+import com.nordikhat.uts.api.ApiClass;
 import com.nordikhat.uts.services.login.LoginClient;
 import com.nordikhat.uts.services.login.LoginService;
 
@@ -25,7 +26,7 @@ public final class InsertVehiculoClient {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.5:9091")
+                .baseUrl(ApiClass.API_URL)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
