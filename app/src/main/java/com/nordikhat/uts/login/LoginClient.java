@@ -16,7 +16,7 @@ public final class LoginClient {
         return instance;
     }
 
-    public void CommentsRepository() {
+    public void loginClient() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
@@ -30,7 +30,7 @@ public final class LoginClient {
         loginService = retrofit.create(LoginService.class);
     }
 
-    public LoginService getCommentsService() {
+    public LoginService getLoginService() {
         return loginService;
     }
 }
