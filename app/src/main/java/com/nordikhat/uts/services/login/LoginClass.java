@@ -1,4 +1,4 @@
-package com.nordikhat.uts.login;
+package com.nordikhat.uts.services.login;
 
 import com.google.gson.annotations.SerializedName;
 

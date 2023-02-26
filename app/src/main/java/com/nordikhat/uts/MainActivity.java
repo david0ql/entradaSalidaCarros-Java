@@ -5,21 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.nordikhat.uts.login.LoginClass;
-import com.nordikhat.uts.login.LoginClient;
-import com.nordikhat.uts.login.LoginResponse;
-import com.nordikhat.uts.login.MetadataResponse;
+import com.nordikhat.uts.services.login.LoginClass;
+import com.nordikhat.uts.services.login.LoginClient;
+import com.nordikhat.uts.services.login.LoginResponse;
+import com.nordikhat.uts.services.login.MetadataResponse;
 
-import java.io.IOException;
-
-import okhttp3.RequestBody;
-import okio.Buffer;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -52,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     if (tipo.equals("ok")){
                         startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                     }else {
-                        Toast.makeText(MainActivity.this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Incorrect Credentials", Toast.LENGTH_SHORT).show();
                     }
                 }
 

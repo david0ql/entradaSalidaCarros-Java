@@ -1,4 +1,4 @@
-package com.nordikhat.uts.login;
+package com.nordikhat.uts.services.login;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

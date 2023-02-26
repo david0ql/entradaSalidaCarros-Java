@@ -1,4 +1,4 @@
-package com.nordikhat.uts.login;
+package com.nordikhat.uts.services.login;
 
 public class LoginResponse {
     private MetadataResponse[] metadata;
