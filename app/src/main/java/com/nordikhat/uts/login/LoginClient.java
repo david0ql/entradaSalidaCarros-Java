@@ -22,7 +22,7 @@ public final class LoginClient {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("NICOLAS BASE URL")
+                .baseUrl("http://192.168.1.5:9091")
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

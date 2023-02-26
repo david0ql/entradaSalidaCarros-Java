@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             loginClient.getLoginService().login(loginClass).enqueue(new Callback<LoginClass>() {
                 @Override
                 public void onResponse(Call<LoginClass> call, Response<LoginClass> r) {
-                    Toast.makeText(getApplicationContext(), "ok " + r.body().getEmail() + " created", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "ok " + r.body() + " created", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
