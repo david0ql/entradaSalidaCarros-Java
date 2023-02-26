@@ -16,7 +16,7 @@ public final class LoginClient {
         return instance;
     }
 
-    public void loginClient() {
+    public LoginClient() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
