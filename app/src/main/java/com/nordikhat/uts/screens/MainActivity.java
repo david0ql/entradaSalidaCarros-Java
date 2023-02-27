@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.nordikhat.uts.R;
 import com.nordikhat.uts.services.login.LoginClass;
 import com.nordikhat.uts.services.login.LoginClient;
@@ -41,14 +42,14 @@ public class MainActivity extends AppCompatActivity {
             loginClient.getLoginService().login(loginClass).enqueue(new Callback<LoginResponse>() {
                 @Override
                 public void onResponse(@NonNull Call<LoginResponse> call, Response<LoginResponse> r) {
-                    assert r.body() != null;
                     MetadataResponse[] metada = r.body().getMetadata();
-                    String tipo = metada[0].getTipo();
-                    if (tipo.equals("ok")){
-                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                    }else {
-                        Toast.makeText(MainActivity.this, "Incorrect Credentials", Toast.LENGTH_SHORT).show();
-                    }
+                    Gson gson = new Gson();
+                    System.out.println(gson.toJson(metada));
+//                    if (tipo.equals("ok")){
+//                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+//                    }else {
+//                        Toast.makeText(MainActivity.this, "Incorrect Credentials", Toast.LENGTH_SHORT).show();
+//                    }
                 }
 
                 @Override
