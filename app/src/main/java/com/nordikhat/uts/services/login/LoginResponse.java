@@ -1,16 +1,16 @@
 package com.nordikhat.uts.services.login;
 
 public class LoginResponse {
-    private MetadataResponse[] metadata;
-    private String name;
-    private String email;
+    private Metadatum[] metadata;
+    private Object name;
+    private Object email;
 
-    public MetadataResponse[] getMetadata() { return metadata; }
-    public void setMetadata(MetadataResponse[] value) { this.metadata = value; }
+    public Metadatum[] getMetadata() { return metadata; }
+    public void setMetadata(Metadatum[] value) { this.metadata = value; }
 
-    public String getName() { return name; }
-    public void setName(String value) { this.name = value; }
+    public Object getName() { return name; }
+    public void setName(Object value) { this.name = value; }
 
-    public String getEmail() { return email; }
-    public void setEmail(String value) { this.email = value; }
+    public Object getEmail() { return email; }
+    public void setEmail(Object value) { this.email = value; }
 }

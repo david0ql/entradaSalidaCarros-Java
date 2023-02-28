@@ -1,4 +1,4 @@
-package com.nordikhat.uts.services.insertarVehiculo;
+package com.nordikhat.uts.services.leerVehiculos;
 
 public class Vehicle {
     private String checkIn;
@@ -31,4 +31,3 @@ public class Vehicle {
     public String getType() { return type; }
     public void setType(String value) { this.type = value; }
 }
-

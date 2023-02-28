@@ -1,24 +1,26 @@
-package com.nordikhat.uts.services.insertarVehiculo;
+package com.nordikhat.uts.services.leerVehiculos;
 
 import com.nordikhat.uts.api.ApiClass;
+import com.nordikhat.uts.services.insertarVehiculo.InsertVehiculoClient;
+import com.nordikhat.uts.services.insertarVehiculo.InsertVehiculoService;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public final class InsertVehiculoClient {
-    private static InsertVehiculoClient instance;
-    private InsertVehiculoService vehicleService;
+public class ReadVehiculoClient {
+    private static ReadVehiculoClient instance;
+    private ReadVehiculoService vehicleService;
 
-    public static InsertVehiculoClient getInstance() {
+    public static ReadVehiculoClient getInstance() {
         if (instance == null) {
-            instance = new InsertVehiculoClient();
+            instance = new ReadVehiculoClient();
         }
         return instance;
     }
 
-    public InsertVehiculoClient() {
+    public ReadVehiculoClient() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
@@ -29,10 +31,10 @@ public final class InsertVehiculoClient {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        vehicleService = retrofit.create(InsertVehiculoService.class);
+        vehicleService = retrofit.create(ReadVehiculoService.class);
     }
 
-    public InsertVehiculoService getInsertVehicleService() {
+    public ReadVehiculoService getReadVehicleService() {
         return vehicleService;
     }
 }

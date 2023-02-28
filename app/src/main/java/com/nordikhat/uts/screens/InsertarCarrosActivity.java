@@ -13,6 +13,7 @@ import com.nordikhat.uts.R;
 import com.nordikhat.uts.services.insertarVehiculo.InsertVehicleClass;
 import com.nordikhat.uts.services.insertarVehiculo.InsertVehiculoClient;
 import com.nordikhat.uts.services.insertarVehiculo.MetadaResponse;
+import com.nordikhat.uts.services.insertarVehiculo.Metadatum;
 import com.nordikhat.uts.services.insertarVehiculo.VehicleResponse;
 
 import retrofit2.Call;
@@ -44,9 +45,9 @@ public class InsertarCarrosActivity extends AppCompatActivity {
 
                 @Override
                 public void onResponse(@NonNull Call<VehicleResponse> call, Response<VehicleResponse> r) {
-                    MetadaResponse[] metada = r.body().getMetadata();
-                    String a = metada[0].getData();
-                    if (a.equals("Success")){
+                    Metadatum metadatum = r.body().getMetadata()[0];
+                    String data = metadatum.getType();
+                    if (data.equals("ok")){
                         Toast.makeText(InsertarCarrosActivity.this, "Insercion exitosa", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                     }else{
