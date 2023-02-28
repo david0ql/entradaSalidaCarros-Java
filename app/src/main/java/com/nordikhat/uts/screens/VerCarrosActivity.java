@@ -2,6 +2,7 @@ package com.nordikhat.uts.screens;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -14,8 +15,12 @@ import com.nordikhat.uts.R;
 import com.nordikhat.uts.api.ApiClass;
 import com.nordikhat.uts.services.leerVehiculos.ReadVehiculoClient;
 import com.nordikhat.uts.services.leerVehiculos.VehicleResponse;
+import com.nordikhat.uts.services.leerVehiculos.VehicleResponseClass;
+import com.nordikhat.uts.services.verVehiculos.adapter.VehiculosAdapter;
 
 import java.io.IOException;
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,8 +38,7 @@ public class VerCarrosActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerview);
         setup();
 
-        //recyclerView.setAdapter(new VehiculosAdapter(new Veh);
-        //recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
 
 
     }
@@ -45,9 +49,8 @@ public class VerCarrosActivity extends AppCompatActivity {
            readVehiculoClient.getReadVehicleService().readVehicles().enqueue(new Callback<VehicleResponse>() {
                @Override
                public void onResponse(@NonNull Call<VehicleResponse> call, Response<VehicleResponse> r) {
-                    Gson gson = new Gson();
-                   String gsona = gson.toJson(r.body().getMetadata().toString());
-                   System.out.println(gsona);
+                   recyclerView.setAdapter(new VehiculosAdapter(getApplicationContext(), r.body().getVehicleResponse().getVehicle()));
+                   recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                }
 
                @Override
