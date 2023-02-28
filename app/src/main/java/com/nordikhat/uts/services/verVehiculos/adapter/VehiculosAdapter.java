@@ -47,7 +47,11 @@ public class VehiculosAdapter extends RecyclerView.Adapter<VehiculosAdapter.View
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(mContext, EditarCarrosActivity.class);
+                i.putExtra("id", vehicles[holder.getAdapterPosition()].getID());
                 i.putExtra("placa", vehicles[holder.getAdapterPosition()].getPlate());
+                i.putExtra("nombre", vehicles[holder.getAdapterPosition()].getName());
+                i.putExtra("tipo", vehicles[holder.getAdapterPosition()].getType());
+                i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(i);
             }
