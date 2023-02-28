@@ -9,7 +9,7 @@ import android.widget.Button;
 import com.nordikhat.uts.R;
 
 public class HomeActivity extends AppCompatActivity {
-    Button verCarros, editarCarros, insertarCarros;
+    Button verCarros, insertarCarros;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,16 +17,12 @@ public class HomeActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Panel administrativo");
 
         verCarros = findViewById(R.id.verCarros);
-        editarCarros = findViewById(R.id.editarCarros);
         insertarCarros = findViewById(R.id.insertarCarros);
 
         verCarros.setOnClickListener(view -> {
             startActivity(new Intent(getApplicationContext(), VerCarrosActivity.class));
         });
 
-        editarCarros.setOnClickListener(view -> {
-            startActivity(new Intent(getApplicationContext(), EditarCarrosActivity.class));
-        });
 
         insertarCarros.setOnClickListener(view -> {
             startActivity(new Intent(getApplicationContext(), InsertarCarrosActivity.class));
