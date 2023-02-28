@@ -46,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
                         Metadatum datum =  r.body().getMetadata()[0];
                         String tipo = datum.getType();
                         if (tipo.equals("ok")){
-                            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                            Intent i = new Intent(getApplicationContext(), HomeActivity.class);
+                            i.putExtra("name", r.body().getName().toString());
+                            startActivity(i);
                         }else {
                             Toast.makeText(MainActivity.this, "Incorrect Credentials", Toast.LENGTH_SHORT).show();
                         }
