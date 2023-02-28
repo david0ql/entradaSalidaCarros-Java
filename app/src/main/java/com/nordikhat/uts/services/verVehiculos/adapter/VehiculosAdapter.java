@@ -24,9 +24,9 @@ public class VehiculosAdapter extends RecyclerView.Adapter<VehiculosAdapter.View
 
 
     private Context mContext;
-    com.nordikhat.uts.services.leerVehiculos.Vehicle[] vehicles;
+    List<com.nordikhat.uts.services.leerVehiculos.Vehicle> vehicles;
 
-    public VehiculosAdapter(Context mContext, Vehicle[] vehicles) {
+    public VehiculosAdapter(Context mContext, List<Vehicle> vehicles) {
         this.mContext = mContext;
         this.vehicles = vehicles;
     }
@@ -41,17 +41,17 @@ public class VehiculosAdapter extends RecyclerView.Adapter<VehiculosAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull VehiculosAdapter.ViewHolderHist holder, int position) {
-        holder.placa.setText(vehicles[position].getPlate());
-        holder.nombre.setText(vehicles[position].getName());
-        holder.tipo.setText(vehicles[position].getType());
+        holder.placa.setText(vehicles.get(position).getPlate());
+        holder.nombre.setText(vehicles.get(position).getName());
+        holder.tipo.setText(vehicles.get(position).getType());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(mContext, EditarCarrosActivity.class);
-                i.putExtra("id", vehicles[holder.getAdapterPosition()].getID().toString());
-                i.putExtra("placa", vehicles[holder.getAdapterPosition()].getPlate());
-                i.putExtra("nombre", vehicles[holder.getAdapterPosition()].getName());
-                i.putExtra("tipo", vehicles[holder.getAdapterPosition()].getType());
+                i.putExtra("id", vehicles.get(holder.getAdapterPosition()).toString());
+                i.putExtra("placa", vehicles.get(holder.getAdapterPosition()).getPlate());
+                i.putExtra("nombre", vehicles.get(holder.getAdapterPosition()).getName());
+                i.putExtra("tipo", vehicles.get(holder.getAdapterPosition()).getType());
                 i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(i);
@@ -62,7 +62,7 @@ public class VehiculosAdapter extends RecyclerView.Adapter<VehiculosAdapter.View
 
     @Override
     public int getItemCount() {
-        return vehicles.length;
+        return vehicles.size();
     }
 
     public class ViewHolderHist extends RecyclerView.ViewHolder {
@@ -82,7 +82,4 @@ public class VehiculosAdapter extends RecyclerView.Adapter<VehiculosAdapter.View
 
     }
 
-    public void setCard() {
-
-    }
 }
