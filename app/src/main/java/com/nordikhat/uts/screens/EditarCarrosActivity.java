@@ -2,6 +2,7 @@ package com.nordikhat.uts.screens;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.nordikhat.uts.R;
@@ -12,6 +13,8 @@ public class EditarCarrosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_carros);
-        getSupportActionBar().setTitle("Editar Carros");
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("placa");
+        getSupportActionBar().setTitle("Editando Vehiculo: " + name);
     }
 }
