@@ -8,6 +8,7 @@ import android.os.StrictMode;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nordikhat.uts.R;
 
@@ -60,7 +61,12 @@ public class EditarCarrosActivity extends AppCompatActivity {
                     .build();
             try {
                 Response response = client.newCall(request).execute();
-                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                System.out.println(response.body().string());
+                Toast.makeText(this, "Se ha actualizado con exito", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getApplicationContext(), VerCarrosActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(i);
 
             } catch (IOException e) {
                 throw new RuntimeException(e);

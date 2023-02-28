@@ -2,6 +2,7 @@ package com.nordikhat.uts.services.verVehiculos.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +48,7 @@ public class VehiculosAdapter extends RecyclerView.Adapter<VehiculosAdapter.View
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(mContext, EditarCarrosActivity.class);
-                i.putExtra("id", vehicles[holder.getAdapterPosition()].getID());
+                i.putExtra("id", vehicles[holder.getAdapterPosition()].getID().toString());
                 i.putExtra("placa", vehicles[holder.getAdapterPosition()].getPlate());
                 i.putExtra("nombre", vehicles[holder.getAdapterPosition()].getName());
                 i.putExtra("tipo", vehicles[holder.getAdapterPosition()].getType());
